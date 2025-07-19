@@ -1,4 +1,4 @@
-#/etc/nixos/configuration.nix
+#/etc/nixos/host/configuration.nix
 { config, lib, pkgs, ... }:
   imports = [ 
     ../hardware-configuration.nix
