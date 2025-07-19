@@ -15,7 +15,7 @@ if [[ ! -f $SSH_KEY ]]; then
   echo "[+] Generating deploy key"
   ssh-keygen -t ed25519 -f "$SSH_KEY" -N "" -C "nixos-wings"
 
-  GITHUB_TOKEN=$(tr -d '\n' < /home/wings/.ssh/github-token.txt)
+  GITHUB_TOKEN=$(tr -d '\n' < $HOME/.ssh/github-token.txt)
   GITHUB_USER="AwkwardGecko"
   GITHUB_REPO="media-server"
 
