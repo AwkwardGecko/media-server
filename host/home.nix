@@ -1,12 +1,12 @@
-#/etc/nixos/home.nix
+#/etc/nixos/host/home.nix
 { config, pkgs, ... }:
 
 {
   imports = [
-    ./home-modules/fastfetch.nix
-    ./home-modules/fish.nix
-    ./home-modules/git.nix
-    ./home-modules/kitty.nix
+    ../home-modules/fastfetch.nix
+    ../home-modules/fish.nix
+    ../home-modules/git.nix
+    ../home-modules/kitty.nix
   ];
 
   home.username = "wings";
@@ -18,8 +18,4 @@
     userName = "AwkwardGecko";
     userEmail = "doomguy95@hotmail.com";
   };
-
-  # home.file.".local/share/applications/teams.desktop".text = ''
-  #   test
-  # '';
 }
