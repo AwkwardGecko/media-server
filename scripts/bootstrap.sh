@@ -26,7 +26,7 @@ if [[ ! -f $SSH_KEY ]]; then
        -d @- \
        "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/keys" <<EOF
 {
-  "title": "$(cat hosts/local/host.nix | grep hostName | cut -d'"' -f2)-$(date +%s)",
+  "title": "$(cat host/hostname.nix | grep hostName | cut -d'"' -f2)-$(date +%s)",
   "key": "$(cat "${SSH_KEY}.pub")",
   "read_only": true
 }
