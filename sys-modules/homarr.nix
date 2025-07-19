@@ -1,8 +1,6 @@
+#/etc/nixos/sys-modules/homarr.nix
+{ config, lib, pkgs, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   # Runtime
   virtualisation.podman = {
     enable = true;
