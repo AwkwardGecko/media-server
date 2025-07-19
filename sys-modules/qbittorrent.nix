@@ -1,0 +1,191 @@
+#/etc/nixos/sys-modules/qbittorrent.nix
+{ config, lib, pkgs, ... }:
+{
+  # Runtime
+  virtualisation.podman = {
+    enable = true;
+    autoPrune.enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings = {
+      # Required for container networking to be able to use names.
+      dns_enabled = true;
+    };
+  };
+
+  # Enable container name DNS for non-default Podman networks.
+  # https://github.com/NixOS/nixpkgs/issues/226365
+  networking.firewall.interfaces."podman+".allowedUDPPorts = [53];
+
+  networking.firewall.allowedTCPPorts = [
+    6881
+    8080
+    8200
+    8388
+    8888
+  ];
+
+  virtualisation.oci-containers.backend = "podman";
+
+  # Containers
+  virtualisation.oci-containers.containers."gluetun" = {
+    image = "ghcr.io/qdm12/gluetun";
+    environment = {
+      "PGID" = "1000";
+      "PUID" = "1000";
+      "SERVER_CITIES" = "Sydney";
+      "TZ" = "Australia/Sydney";
+      "VPN_SERVICE_PROVIDER" = "protonvpn";
+      "VPN_TYPE" = "wireguard";
+      "WIREGUARD_PRIVATE_KEY" = "mHhUpIlwHM1udmSIHsrn0IKv9EOGZKGsOOx8tpuZIlw=";
+    };
+    volumes = [
+      "/config/gluetun:/gluetun:rw"
+    ];
+    ports = [
+      "8888:8888/tcp"
+      "8388:8388/tcp"
+      "8388:8388/udp"
+      "6881:6881/tcp"
+      "8200:8200/tcp"
+      # "9696:9696/tcp"
+    ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
+    log-driver = "journald";
+    extraOptions = [
+      "--cap-add=NET_ADMIN"
+      "--cap-add=NET_RAW"
+      "--device=/dev/net/tun:/dev/net/tun:rwm"
+      "--network-alias=gluetun"
+      "--network=gluetun_default"
+    ];
+  };
+  systemd.services."podman-gluetun" = {
+    serviceConfig = {
+      Restart = lib.mkOverride 90 "always";
+      ExecStartPre = [
+        "${pkgs.bash}/bin/bash -c 'sleep 10'"
+      ];
+    };
+    after = [
+      "podman-network-gluetun_default.service"
+    ];
+    requires = [
+      "podman-network-gluetun_default.service"
+    ];
+    partOf = [
+      "podman-compose-gluetun-root.target"
+    ];
+    wantedBy = [
+      "podman-compose-gluetun-root.target"
+    ];
+  };
+
+  ###############################################################################
+  # virtualisation.oci-containers.containers."prowlarr" = {
+  #   image = "lscr.io/linuxserver/prowlarr:latest";
+  #   environment = {
+  #     "PGID" = "1000";
+  #     "PUID" = "1000";
+  #     "TZ" = "Australia/Sydney";
+  #     "WEBUI_PORT" = "9696";
+  #   };
+  #   volumes = [
+  #     "/config/prowlarr:/config:rw"
+  #   ];
+  #   labels = {
+  #     "io.containers.autoupdate" = "registry";
+  #   };
+  #   dependsOn = [
+  #     "gluetun"
+  #   ];
+  #   log-driver = "journald";
+  #   extraOptions = [
+  #     "--network=container:gluetun"
+  #   ];
+  # };
+  # systemd.services."podman-prowlarr" = {
+  #   serviceConfig = {
+  #     Restart = lib.mkOverride 90 "always";
+  #   };
+  #   partOf = [
+  #     "podman-compose-gluetun-root.target"
+  #   ];
+  #   wantedBy = [
+  #     "podman-compose-gluetun-root.target"
+  #   ];
+  # };
+
+  ######################################################################
+
+  ##########################################################
+
+  virtualisation.oci-containers.containers."qbittorrent" = {
+    image = "lscr.io/linuxserver/qbittorrent:latest";
+    environment = {
+      "HEALTH_SERVER_ADDRESS" = "127.0.0.1:9999";
+      "HEALTH_SUCCESS_WAIT_DURATION" = "5s";
+      "HEALTH_TARGET_ADDRESS" = "cloudflare.com:443";
+      "HEALTH_VPN_DURATION_ADDITION" = "5s";
+      "HEALTH_VPN_DURATION_INITIAL" = "6s";
+      "PGID" = "1000";
+      "PUID" = "1000";
+      "TZ" = "Australia/Sydney";
+      "WEBUI_PORT" = "8200";
+    };
+    volumes = [
+      "/config/qbittorrent:/config:rw"
+      "/data/media/downloads:/media/downloads:rw"
+    ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
+    dependsOn = [
+      "gluetun"
+    ];
+    log-driver = "journald";
+    extraOptions = [
+      "--network=container:gluetun"
+    ];
+  };
+  systemd.services."podman-qbittorrent" = {
+    serviceConfig = {
+      Restart = lib.mkOverride 90 "always";
+      ExecStartPre = [
+        "${pkgs.bash}/bin/bash -c 'sleep 10'"
+      ];
+    };
+    partOf = [
+      "podman-compose-gluetun-root.target"
+    ];
+    wantedBy = [
+      "podman-compose-gluetun-root.target"
+    ];
+  };
+
+  # Networks
+  systemd.services."podman-network-gluetun_default" = {
+    path = [pkgs.podman];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStop = "podman network rm -f gluetun_default";
+    };
+    script = ''
+      podman network inspect gluetun_default || podman network create gluetun_default
+    '';
+    partOf = ["podman-compose-gluetun-root.target"];
+    wantedBy = ["podman-compose-gluetun-root.target"];
+  };
+
+  # Root service
+  # When started, this will automatically create all resources and start
+  # the containers. When stopped, this will teardown all resources.
+  systemd.targets."podman-compose-gluetun-root" = {
+    unitConfig = {
+      Description = "Root target generated by compose2nix.";
+    };
+    wantedBy = ["multi-user.target"];
+  };
+}
