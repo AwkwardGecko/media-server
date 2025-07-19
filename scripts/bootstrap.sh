@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#/etc/nixos/bootstrap.sh
+#/etc/nixos/scripts/bootstrap.sh
 set -euo pipefail
 cd /etc/nixos
 
