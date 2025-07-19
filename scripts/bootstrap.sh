@@ -4,7 +4,7 @@ set -euo pipefail
 cd /etc/nixos
 
 # --- Step 0: Generate correct hostname -------------------------------------------------
-/etc/nixos/bootstrap/update-hostname.sh
+/etc/nixos/scripts/update-hostname.sh
  
 # --- Step 1: create read-only deploy key on GitHub --------------------------------------
 
