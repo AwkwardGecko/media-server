@@ -1,5 +1,5 @@
 #/etc/nixos/sys-modules/sonarr.nix
-{ config, lib, pkgs, ... }
+{ config, lib, pkgs, ... }:
 {
   networking.firewall.allowedTCPPorts = [ 8989 ];
 
