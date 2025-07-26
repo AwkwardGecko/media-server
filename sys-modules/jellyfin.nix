@@ -20,7 +20,7 @@ in
     configDir = "/var/lib/jellyfin";
     user = "jellyfin";
     extraGroups = [ "video" "render" ];
-    ffmpegPackage = ffmpegNvenc
+    ffmpegPackage = ffmpegNvenc;
   };
 
   environment.systemPackages = with pkgs; [
