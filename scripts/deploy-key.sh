@@ -10,6 +10,8 @@ ssh-keygen -t ed25519 \
   -C "deploy key for wings" \
   -N ""
 
+git remote add origin git@github.com:awkwardgecko/media-server.git
+
 gh repo deploy-key add ~/.ssh/id_nixos_readonly.pub \
   --repo AwkwardGecko/media-server \
   --title "nixos-deploy-$(date +%F)" \
