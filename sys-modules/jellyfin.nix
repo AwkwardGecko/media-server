@@ -25,5 +25,6 @@
     chromaprint
     jellyfin
     jellyfin-ffmpeg
+    vlc
   ];
 }
