@@ -5,13 +5,13 @@
 
   services.radarr = {
     enable = true;
-    user = "wings";
-    group = "users";
+    user = "radarr";
+    group = "radarr";
     dataDir = "/var/lib/radarr/";
     openFirewall = true;
     settings = {
       server = {
-        urlbase = "/radar";
+        urlbase = "/radarr";
         port = 7878;
         bindaddress = "*";
       };
