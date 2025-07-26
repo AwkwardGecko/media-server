@@ -41,9 +41,9 @@ virtualisation.oci-containers.backend = "podman";
       "TZ" = "Australia/Sydney";
     };
     volumes = [
-      "/config/syncthing:/config:rw"
-      "/data/media:/data:rw"
-      "/data/syncthing:/syncthing:rw"
+      "/var/lib/syncthing/config:/config:rw"
+      "/var/lib/syncthing/data:/data:rw"
+      "/var/lib/syncthing:/syncthing:rw"
     ];
     ports = [
       "8384:8384/tcp"
