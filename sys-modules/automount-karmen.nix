@@ -14,6 +14,7 @@
       "vers=3.0"
       "rw"
       "_netdev"               # wait for network
+      "nofail"
       "noauto"                # don’t mount at boot
       "x-systemd.automount"   # create *.automount unit
       "x-systemd.idle-timeout=600" # 10‑minute idle unmount
