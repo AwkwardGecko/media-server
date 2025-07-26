@@ -17,6 +17,7 @@ imports = [
     #../sys-modules/github-desktop.nix
     #../sys-modules/gnome-disks.nix
     #../sys-modules/gparted.nix
+    ../sys-modules/homarr.nix
     #../sys-modules/htop.nix
     ../sys-modules/jellyfin.nix
     #../sys-modules/kcalc.nix
