@@ -4,9 +4,7 @@ set -euo pipefail
 cd /etc/nixos
 
 # --- Step 0: Generate correct hostname -------------------------------------------------
-sudo chmod +x /etc/nixos/scripts/*
-/etc/nixos/scripts/update-hostname.sh
- 
+sudo chmod +x /etc/nixos/scripts/* 
 # --- Step 1: create read-only deploy key on GitHub --------------------------------------
 
 SSH_KEY="$HOME/.ssh/id_nixos_wings"
