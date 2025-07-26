@@ -1,7 +1,7 @@
 #/etc/nixos/sys-modules/jellyfin.nix
 { pkgs, lib, config, ... }:
 let
-   Build FFmpeg with NVENC support; allow unfree so the proprietary NVENC bits can be used
+   # Build FFmpeg with NVENC support; allow unfree so the proprietary NVENC bits can be used
   ffmpegNVENC = pkgs.ffmpeg.override {
     enableNVENC = true;
   };
