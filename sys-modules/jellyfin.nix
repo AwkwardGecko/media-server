@@ -11,6 +11,8 @@ in
     8920
   ];
 
+  users.users.jellyfin.extraGroups = [ "video" "render" ];
+
   services.jellyfin = {
     enable = true;
     openFirewall = true;
@@ -19,7 +21,6 @@ in
     dataDir = "/var/lib/jellyfin/data";
     configDir = "/var/lib/jellyfin";
     user = "jellyfin";
-    extraGroups = [ "video" "render" ];
     ffmpegPackage = ffmpegNvenc;
   };
 
