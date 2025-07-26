@@ -7,6 +7,7 @@ imports = [
     #../sys-modules/birdtray.nix
     ../sys-modules/bluetooth.nix
     #../sys-modules/chrome.nix
+    ../sys-modules/cifs-utils.nix
     #../sys-modules/esphome.nix
     #../sys-modules/evolution.nix
     ../sys-modules/firefox.nix
