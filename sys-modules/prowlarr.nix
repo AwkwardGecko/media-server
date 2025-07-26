@@ -12,7 +12,7 @@
     settings = {
       server = {
         #update = "automatically";
-        urlbase = "192.168.1.157";
+        #urlbase = "192.168.1.157";
         port = 9696;
         bindaddress = "*";
       };
