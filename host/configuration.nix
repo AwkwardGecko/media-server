@@ -38,7 +38,7 @@ imports = [
     ../sys-modules/remotemouse.nix
     #../sys-modules/signal-desktop.nix
     ../sys-modules/sonarr.nix
-    #../sys-modules/sshfs.nix
+    ../sys-modules/sshfs.nix
     #../sys-modules/steam.nix
     ../sys-modules/teamviewer.nix
     #../sys-modules/virtualbox.nix
