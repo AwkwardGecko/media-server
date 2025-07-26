@@ -5,13 +5,13 @@
 
   services.radarr = {
     enable = true;
-    user = "wings";
-    group = "users";
+    user = "sonarr";
+    group = "sonarr";
     dataDir = "/var/lib/sonarr/";
     openFirewall = true;
     settings = {
       server = {
-        urlbase = "/radar";
+        urlbase = "/sonarr";
         port = 7878;
         bindaddress = "*";
       };
