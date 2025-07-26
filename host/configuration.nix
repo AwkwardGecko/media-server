@@ -6,14 +6,13 @@ imports = [
     #../sys-modules/baobab.nix
     #../sys-modules/birdtray.nix
     ../sys-modules/bluetooth.nix
-    ../sys-modules/btrfs.nix
     #../sys-modules/chrome.nix
     #../sys-modules/esphome.nix
     #../sys-modules/evolution.nix
     ../sys-modules/firefox.nix
     #../sys-modules/firewall.nix
     #../sys-modules/flatpak.nix
-    ../sys-modules/fonts.nix
+    #../sys-modules/fonts.nix
     #../sys-modules/github-desktop.nix
     #../sys-modules/gnome-disks.nix
     #../sys-modules/gparted.nix
