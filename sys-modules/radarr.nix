@@ -1,5 +1,5 @@
 #/etc/nixos/sys-modules/radarr.nix
-{ config, lib, pkgs, ... }
+{ config, lib, pkgs, ... }:
 {
   networking.firewall.allowedTCPPorts = [ 7878 ];
 
