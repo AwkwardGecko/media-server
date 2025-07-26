@@ -26,4 +26,5 @@ fi
        --flake /etc/nixos#wings \
        --show-trace
 
-echo "[✓] System is fucking updated, you brain-dead inbred piss-guzzling tumor-brained slack-jawed crusty-ass dogshit-eating baboon-fisting hemorrhoid-eating dumpsterfire dickwart"
+echo "[✓] System is fucking updated, you brain-dead inbred piss-guzzling tumor-brained"
+echo "slack-jawed crusty-ass dogshit-eating baboon-fisting hemorrhoid-eating dumpsterfire dickwart"
