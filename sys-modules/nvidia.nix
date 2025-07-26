@@ -1,6 +1,5 @@
 # /etc/nixos/sys-modules/nvidia.nix
 { config, pkgs, lib, ... }:
-
 {
   # Proprietary driver requires unfree packages
   nixpkgs.config.allowUnfree = true;
