@@ -1,11 +1,11 @@
 #/etc/nixos/sys-modules/jellyfin.nix
 { pkgs, lib, config, ... }:
-#let
-  # Build FFmpeg with NVENC support; allow unfree so the proprietary NVENC bits can be used
-  #ffmpegNVENC = pkgs.ffmpeg.override {
-  #  enableNVENC = true;
-  #};
-#in
+let
+   Build FFmpeg with NVENC support; allow unfree so the proprietary NVENC bits can be used
+  ffmpegNVENC = pkgs.ffmpeg.override {
+    enableNVENC = true;
+  };
+in
 {
   networking.firewall.allowedTCPPorts = [
     8096
@@ -22,9 +22,9 @@
     user = "jellyfin";
   };
 
-  #package = pkgs.jellyfin.override {
-  #  ffmpeg = ffmpegNVENC;
-  #};
+  package = pkgs.jellyfin.override {
+    ffmpeg = ffmpegNVENC;
+  };
 
   environment.systemPackages = with pkgs; [
     #ffmpegNVENC
