@@ -3,7 +3,7 @@
 {
   networking.firewall.allowedTCPPorts = [ 8989 ];
 
-  services.radarr = {
+  services.sonarr = {
     enable = true;
     user = "sonarr";
     group = "sonarr";
