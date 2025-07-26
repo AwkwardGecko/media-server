@@ -1,6 +1,7 @@
 #/etc/nixos/host/configuration.nix
 { config, lib, pkgs, ... }:
-  imports = [ 
+{
+imports = [ 
     ./hardware-configuration.nix
     #./sys-modules/baobab.nix
     #./sys-modules/birdtray.nix
