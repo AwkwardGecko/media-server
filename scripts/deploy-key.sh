@@ -13,8 +13,7 @@ ssh-keygen -t ed25519 \
 gh repo deploy-key add ~/.ssh/id_nixos_readonly.pub \
   --repo AwkwardGecko/media-server \
   --title "nixos-deploy-$(date +%F)" \
-  --no-write-access
-
+  
 cd /etc/nixos
 git remote -v
 # if it shows https://, switch it:
