@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# /etc/nixos/update.sh
+# /etc/nixos/scripts/update.sh
 set -euo pipefail
 
 cd /etc/nixos
@@ -23,7 +23,7 @@ fi
 # ── Rebuild ─────────────────────────────────────────────────────────────
   sudo nixos-rebuild switch \
        --upgrade \
-       --flake /etc/nixos# \
+       --flake /etc/nixos#wings \
        --show-trace
 
 echo "[✓] System is fucking updated you retarded fuckhead fat fucking cock crackhead cunt"
