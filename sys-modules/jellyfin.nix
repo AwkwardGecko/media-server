@@ -1,8 +1,5 @@
 #/etc/nixos/sys-modules/jellyfin.nix
 { pkgs, lib, config, ... }:
-let
-  ffmpegNvenc = pkgs.ffmpeg-full;
-in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -21,7 +18,6 @@ in
     dataDir = "/var/lib/jellyfin/data";
     configDir = "/var/lib/jellyfin";
     user = "jellyfin";
-    ffmpegPackage = ffmpegNvenc;
   };
 
   environment.systemPackages = with pkgs; [
