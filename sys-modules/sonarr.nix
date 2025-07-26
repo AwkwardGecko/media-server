@@ -12,7 +12,7 @@
     settings = {
       server = {
         urlbase = "/sonarr";
-        port = 7878;
+        port = 8989;
         bindaddress = "*";
       };
       update = {
