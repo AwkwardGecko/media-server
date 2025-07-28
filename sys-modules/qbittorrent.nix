@@ -36,7 +36,7 @@
       "TZ" = "Australia/Sydney";
       "VPN_SERVICE_PROVIDER" = "protonvpn";
       "VPN_TYPE" = "wireguard";
-      "WIREGUARD_PRIVATE_KEY" = "mHhUpIlwHM1udmSIHsrn0IKv9EOGZKGsOOx8tpuZIlw=";
+      "WIREGUARD_PRIVATE_KEY" = "MG2ZSYCqo1Rg7y6eb8LGN68Wv+HT09PABqmDX4rAMk8=";
     };
     volumes = [
       "/var/lib/gluetun:/gluetun:rw"
