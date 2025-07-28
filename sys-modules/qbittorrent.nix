@@ -39,7 +39,7 @@
       "WIREGUARD_PRIVATE_KEY" = "mHhUpIlwHM1udmSIHsrn0IKv9EOGZKGsOOx8tpuZIlw=";
     };
     volumes = [
-      "/config/gluetun:/gluetun:rw"
+      "/var/lib/gluetun:/gluetun:rw"
     ];
     ports = [
       "8888:8888/tcp"
@@ -82,43 +82,6 @@
     ];
   };
 
-  ###############################################################################
-  # virtualisation.oci-containers.containers."prowlarr" = {
-  #   image = "lscr.io/linuxserver/prowlarr:latest";
-  #   environment = {
-  #     "PGID" = "1000";
-  #     "PUID" = "1000";
-  #     "TZ" = "Australia/Sydney";
-  #     "WEBUI_PORT" = "9696";
-  #   };
-  #   volumes = [
-  #     "/config/prowlarr:/config:rw"
-  #   ];
-  #   labels = {
-  #     "io.containers.autoupdate" = "registry";
-  #   };
-  #   dependsOn = [
-  #     "gluetun"
-  #   ];
-  #   log-driver = "journald";
-  #   extraOptions = [
-  #     "--network=container:gluetun"
-  #   ];
-  # };
-  # systemd.services."podman-prowlarr" = {
-  #   serviceConfig = {
-  #     Restart = lib.mkOverride 90 "always";
-  #   };
-  #   partOf = [
-  #     "podman-compose-gluetun-root.target"
-  #   ];
-  #   wantedBy = [
-  #     "podman-compose-gluetun-root.target"
-  #   ];
-  # };
-
-  ######################################################################
-
   ##########################################################
 
   virtualisation.oci-containers.containers."qbittorrent" = {
@@ -135,8 +98,8 @@
       "WEBUI_PORT" = "8200";
     };
     volumes = [
-      "/config/qbittorrent:/config:rw"
-      "/data/media/downloads:/media/downloads:rw"
+      "/var/lib/qbittorrent:/config:rw"
+      "/media/downloads:/media/downloads:rw"
     ];
     labels = {
       "io.containers.autoupdate" = "registry";
