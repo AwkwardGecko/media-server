@@ -39,8 +39,10 @@
     serviceConfig.SupplementaryGroups = [ "video" "render" ];
   };
 
-  nixpkgs.config.packageOverrides = final: prev: {
-    intel-vaapi-driver = prev.intel-vaapi-driver.override { enableHybridCodec = true; };
+  nixpkgs.config.packageOverrides = pkgs: {
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { 
+      enableHybridCodec = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
