@@ -41,7 +41,7 @@ imports = [
     ../sys-modules/sonarr.nix
     ../sys-modules/sshfs.nix
     #../sys-modules/steam.nix
-    ../sys-modules/syncthing.nix
+    #../sys-modules/syncthing.nix
     ../sys-modules/teamviewer.nix
     #../sys-modules/virtualbox.nix
     #../sys-modules/wine.nix
