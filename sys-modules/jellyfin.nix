@@ -48,6 +48,7 @@
   environment.systemPackages = with pkgs; [
     #ffmpegNVENC
     chromaprint
+    libva-utils
     jellyfin
     jellyfin-media-player
     jellyfin-ffmpeg
