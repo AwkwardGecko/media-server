@@ -35,6 +35,7 @@ imports = [
     ../sys-modules/papirus.nix
     ../sys-modules/plasma.nix
 	../sys-modules/prowlarr.nix
+	../sys-modules/qbittorrent.nix
     #../sys-modules/qt.nix
     ../sys-modules/radarr.nix
     ../sys-modules/remotemouse.nix
