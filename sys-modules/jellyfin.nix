@@ -18,21 +18,35 @@
     dataDir = "/var/lib/jellyfin/data";
     configDir = "/var/lib/jellyfin";
     user = "jellyfin";
-    settings = {
-      "FFmpeg:vaapi" = "true"; # VA-API decode/encode
-      "VideoEncoder:EnableQsv" = "true";
-    };
   };
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [ intel-vaapi-driver libva ];
+    extraPackages = with pkgs; [
+      intel-vaapi-driver
+      intel-media-sdk
+      libva-vdpau-driver
+      intel-ocl
+      libva-utils
+    ];
+  };
+
+  systemd.services.jellyfin = {
+    environment = {
+      LIBVA_DRIVER_NAME = "i965";
+      VDPAU_DRIVER = "va_gl";
+    serviceConfig.SupplementaryGroups = [ "video" "render" ];
+  };
+
+  nixpkgs.config.packageOverrides = final: prev: {
+    intel-vaapi-driver = prev.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
 
   environment.systemPackages = with pkgs; [
     #ffmpegNVENC
     chromaprint
     jellyfin
+    jellyfin-media-player
     jellyfin-ffmpeg
     vlc
   ];
