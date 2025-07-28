@@ -11,6 +11,8 @@
     openFirewall = true;
     settings = {
       server = {
+        user = "prowlarr"
+        group = "prowlarr"
         #update = "automatically";
         #urlbase = "192.168.1.157";
         port = 9696;
