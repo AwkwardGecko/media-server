@@ -44,6 +44,7 @@ imports = [
     ../sys-modules/sshfs.nix
     #../sys-modules/steam.nix
     #../sys-modules/syncthing.nix
+	../sys-modules/tailscale.nix
     ../sys-modules/teamviewer.nix
     #../sys-modules/virtualbox.nix
     #../sys-modules/wine.nix
