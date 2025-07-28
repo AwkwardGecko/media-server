@@ -18,6 +18,15 @@
     dataDir = "/var/lib/jellyfin/data";
     configDir = "/var/lib/jellyfin";
     user = "jellyfin";
+    settings = {
+      "FFmpeg:vaapi" = "true"; # VA-API decode/encode
+      "VideoEncoder:EnableQsv" = "true";
+    };
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ intel-vaapi-driver libva ];
   };
 
   environment.systemPackages = with pkgs; [
