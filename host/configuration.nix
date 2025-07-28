@@ -4,7 +4,8 @@
 imports = [ 
     ./../hardware-configuration.nix
     #../sys-modules/baobab.nix
-    #../sys-modules/birdtray.nix
+../sys-modules/bazarr.nix    
+#../sys-modules/birdtray.nix
     ../sys-modules/bluetooth.nix
     #../sys-modules/chrome.nix
     ../sys-modules/cifs-utils.nix
