@@ -35,6 +35,7 @@
     environment = {
       LIBVA_DRIVER_NAME = "i965";
       VDPAU_DRIVER = "va_gl";
+    };
     serviceConfig.SupplementaryGroups = [ "video" "render" ];
   };
 
