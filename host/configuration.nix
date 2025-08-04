@@ -24,7 +24,7 @@ imports = [
     #../sys-modules/kcalc.nix
     #../sys-modules/kdeconnect-firewall.nix
     #../sys-modules/killall.nix
-    	../../sys-modules/krdp.nix
+    	#../../sys-modules/krdp.nix
 	#../sys-modules/nixpkgs-fmt.nix
     #../sys-modules/nix-ld.nix
     ../sys-modules/papirus-theme.nix
