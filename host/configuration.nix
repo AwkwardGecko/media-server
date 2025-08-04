@@ -35,6 +35,7 @@ imports = [
     #../sys-modules/openssl.nix
     ../sys-modules/papirus.nix
     ../sys-modules/plasma.nix
+	../sys-modules/prometheus.nix
 	../sys-modules/prowlarr.nix
 	../sys-modules/qbittorrent.nix
     #../sys-modules/qt.nix
