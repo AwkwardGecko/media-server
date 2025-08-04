@@ -4,11 +4,6 @@
   ## 1) Enable the SSH daemon for incoming connections
   services.openssh = {
     enable                  = true;
-
-    settings = {
-      permitRootLogin         = "no";          # use your regular user instead of root
-      passwordAuthentication  = false;         # disable passwords if you only use keys
-    };
   };
 
   ## 2) Open TCP/22 in the system firewall
