@@ -127,7 +127,7 @@ imports = [
     	description = "wings";
     	extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
 	authorizedKeys.keys = [
-        	serverPubKey
+        	builtins.readFile /root/.ssh/id_ed25519.pub
     	];
 	packages = with pkgs; [
       		kdePackages.kate
