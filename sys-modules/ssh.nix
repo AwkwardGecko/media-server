@@ -1,6 +1,8 @@
 # /etc/nixos/sys-modules/ssh.nix
 { config, pkgs, lib, ... }:
-
+let
+    serverPubKey = builtins.readFile /root/.ssh/id_ed25519.pub;
+in
 {
   ## 1) Enable the SSH daemon for incoming connections
   services.openssh = {
