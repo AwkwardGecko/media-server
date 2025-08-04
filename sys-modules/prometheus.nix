@@ -7,5 +7,5 @@
     port          = 9100;
     openFirewall  = true;
   };
-  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 9100 ];
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 }
