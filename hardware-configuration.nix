@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernelParams = [ "reboot=efi" ];
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/b5f1379a-ccd4-482c-8d52-8f615b36120d";
       fsType = "ext4";
