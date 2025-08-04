@@ -126,7 +126,7 @@ imports = [
     	isNormalUser = true;
     	description = "wings";
     	extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
-	authorizedKeys.keys = [
+	openssh.authorizedKeys.keys = [
         	builtins.readFile /root/.ssh/id_ed25519.pub
     	];
 	packages = with pkgs; [
