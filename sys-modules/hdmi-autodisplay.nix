@@ -1,41 +1,38 @@
-# sys-modules/hdmi-autodisplay.nix
-{ lib, pkgs, config, ... }:
+# sys-modules/hdmi-switch.nix
+{ pkgs, config, lib, ... }:
 
 let
-  internal = "eDP-1";
-  external = "HDMI-A-1";
+  script = pkgs.writeShellScriptBin "hdmi-switch" ''
+    #!/usr/bin/env bash
+    export DISPLAY=:0
+    export QT_QPA_PLATFORM=wayland   # if on Wayland
+    export XDG_RUNTIME_DIR=/run/user/$(id -u wings)
+    export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
 
-  scriptPkg = pkgs.writeShellScriptBin "hdmi-switch" ''
-    #!${pkgs.bash}/bin/bash
-    user="wings"
-    uid=$(id -u "$user")
-
-    export XDG_RUNTIME_DIR="/run/user/$uid"
-    export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
-    export DISPLAY=":0"
-
-    status=$(< /sys/class/drm/card0-${external}/status)
-
-    if [[ "$status" == "connected" ]]; then
-      ${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor \
-        output.${internal}.disable \
-        output.${external}.enable \
-        output.${external}.primary
+    status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
+    if [[ $status == connected ]]; then
+      kscreen-doctor output.eDP-1.disable \
+                     output.HDMI-A-1.enable \
+                     output.HDMI-A-1.primary
     else
-      ${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor \
-        output.${internal}.enable \
-        output.${external}.disable
+      kscreen-doctor output.eDP-1.enable \
+                     output.HDMI-A-1.disable
     fi
   '';
-in
-{
-  environment.systemPackages = [
-    pkgs.kdePackages.libkscreen
-    scriptPkg                 # now a proper package
-  ];
+in {
+  environment.systemPackages = [ script pkgs.kdeFrameworks.kcoreaddons ];
 
-  services.udev.extraRules = ''
-    ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
-      RUN+="${scriptPkg}/bin/hdmi-switch"
-  '';
+  # enable systemd user services
+  services.systemd.user = {
+    enable = true;
+    services.hdmi-switch = {
+      description = "Auto HDMI switch for Plasma";
+      after       = [ "graphical-session.target" ];
+      wantedBy    = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${script}";
+        Restart   = "on-failure";
+      };
+    };
+  };
 }
