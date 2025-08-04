@@ -2,10 +2,10 @@
 { lib, pkgs, config, ... }:
 
 let
-  internal = "eDP-1";         # adjust with `kscreen-doctor -o`
+  internal = "eDP-1";
   external = "HDMI-A-1";
 
-  script = pkgs.writeShellScript "hdmi-switch" ''
+  scriptPkg = pkgs.writeShellScriptBin "hdmi-switch" ''
     #!${pkgs.bash}/bin/bash
     user="wings"
     uid=$(id -u "$user")
@@ -14,7 +14,7 @@ let
     export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
     export DISPLAY=":0"
 
-    status=$(cat /sys/class/drm/card0-${external}/status)
+    status=$(< /sys/class/drm/card0-${external}/status)
 
     if [[ "$status" == "connected" ]]; then
       ${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor \
@@ -30,12 +30,12 @@ let
 in
 {
   environment.systemPackages = [
-    pkgs.kdePackages.libkscreen  # handy on $PATH for debugging
-    script
+    pkgs.kdePackages.libkscreen
+    scriptPkg                 # now a proper package
   ];
 
   services.udev.extraRules = ''
     ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
-      RUN+="${script}"
+      RUN+="${scriptPkg}/bin/hdmi-switch"
   '';
 }
