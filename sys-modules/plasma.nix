@@ -6,8 +6,8 @@
     displayManager = {
       sddm.enable = true; 
       autoLogin = {
-        enable = false;
-        user = "dectec";
+        enable = true;
+        user = "wings";
       };
     };
     desktopManager.plasma6.enable = true;
