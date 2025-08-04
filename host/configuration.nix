@@ -123,12 +123,15 @@ imports = [
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.wings = {
-    isNormalUser = true;
-    description = "wings";
-    extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
+    	isNormalUser = true;
+    	description = "wings";
+    	extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
+	authorizedKeys.keys = [
+        	serverPubKey
+    	];
+	packages = with pkgs; [
+      		kdePackages.kate
+    	];
   };
 
   # Enable automatic login for the user.
