@@ -126,8 +126,7 @@ imports = [
     	isNormalUser = true;
     	description = "wings";
     	extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
-	openssh.authorizedKeys.keys = [
-        	builtins.readFile /root/.ssh/id_ed25519.pub
+		openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHUlyS9q+o6rORRBmKSbrKf/jV6HRJtoetiPxjnsVS5 z-home@z-home-mac"
     	];
 	packages = with pkgs; [
       		kdePackages.kate
