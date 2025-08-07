@@ -6,7 +6,7 @@
   services.sonarr = {
     enable = true;
     user = "sonarr";
-    group = "sonarr";
+    group = "users";
     dataDir = "/var/lib/sonarr/";
     openFirewall = true;
     settings = {
