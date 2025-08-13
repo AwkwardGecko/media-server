@@ -22,7 +22,6 @@ fi
 
 # ── Rebuild ─────────────────────────────────────────────────────────────
   sudo nixos-rebuild switch \
-       --upgrade \
        --flake /etc/nixos#wings \
        --show-trace
 
