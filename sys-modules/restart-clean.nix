@@ -2,10 +2,12 @@
 { config, lib, pkgs, ... }:
 {
   # boot.kernelParams = [ 
-    "reboot=efi"     #
+    "reboot=efi"
+  ];
+}
+
+
     # "reboot=acpi"    # tested
     # "reboot=pci"     #
     # "reboot=kbd"     #
     # "reboot=triple"  #
-  ];
-}
