@@ -18,7 +18,7 @@ imports = [
     #../sys-modules/github-desktop.nix
     #../sys-modules/gnome-disks.nix
     #../sys-modules/gparted.nix
-	../sys-modules/hdmi-autodisplay.nix
+	#../sys-modules/hdmi-autodisplay.nix
     ../sys-modules/homarr.nix
     #../sys-modules/htop.nix
     ../sys-modules/jellyfin.nix
@@ -42,7 +42,7 @@ imports = [
     #../sys-modules/qt.nix
     ../sys-modules/radarr.nix
     ../sys-modules/remotemouse.nix
-	../sys-modules/restart-clean.nix
+	#../sys-modules/restart-clean.nix
     #../sys-modules/signal-desktop.nix
     ../sys-modules/sonarr.nix
 	../sys-modules/ssh.nix
