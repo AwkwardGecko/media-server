@@ -37,6 +37,9 @@
       "VPN_SERVICE_PROVIDER" = "protonvpn";
       "VPN_TYPE" = "wireguard";
       "WIREGUARD_PRIVATE_KEY" = "MG2ZSYCqo1Rg7y6eb8LGN68Wv+HT09PABqmDX4rAMk8=";
+
+      "UPDATER_PROTONVPN_USERNAME" = "zozano@protonmail.com";
+      "UPDATER_PROTONVPN_PASSWORD" = "J3MfZSKdiFtd2R";
     };
     volumes = [
       "/var/lib/gluetun:/gluetun:rw"
@@ -47,7 +50,6 @@
       "8388:8388/udp"
       "6881:6881/tcp"
       "8200:8200/tcp"
-      # "9696:9696/tcp"
     ];
     labels = {
       "io.containers.autoupdate" = "registry";
@@ -58,7 +60,6 @@
       "--cap-add=NET_RAW"
       "--device=/dev/net/tun:/dev/net/tun:rwm"
       "--network-alias=gluetun"
-      "--network=gluetun_default"
     ];
   };
   systemd.services."podman-gluetun" = {
@@ -68,18 +69,8 @@
         "${pkgs.bash}/bin/bash -c 'sleep 10'"
       ];
     };
-    after = [
-      "podman-network-gluetun_default.service"
-    ];
-    requires = [
-      "podman-network-gluetun_default.service"
-    ];
-    partOf = [
-      "podman-compose-gluetun-root.target"
-    ];
-    wantedBy = [
-      "podman-compose-gluetun-root.target"
-    ];
+    partOf = [ "podman-compose-gluetun-root.target" ];
+    wantedBy = [ "podman-compose-gluetun-root.target" ];
   };
 
   ##########################################################
@@ -119,28 +110,24 @@
         "${pkgs.bash}/bin/bash -c 'sleep 10'"
       ];
     };
-    partOf = [
-      "podman-compose-gluetun-root.target"
-    ];
-    wantedBy = [
-      "podman-compose-gluetun-root.target"
-    ];
+    partOf = [ "podman-compose-gluetun-root.target" ];
+    wantedBy = [ "podman-compose-gluetun-root.target" ];
   };
 
   # Networks
-  systemd.services."podman-network-gluetun_default" = {
-    path = [pkgs.podman];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStop = "podman network rm -f gluetun_default";
-    };
-    script = ''
-      podman network inspect gluetun_default || podman network create gluetun_default
-    '';
-    partOf = ["podman-compose-gluetun-root.target"];
-    wantedBy = ["podman-compose-gluetun-root.target"];
-  };
+  # systemd.services."podman-network-gluetun_default" = {
+  #   path = [pkgs.podman];
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     RemainAfterExit = true;
+  #     ExecStop = "podman network rm -f gluetun_default";
+  #   };
+  #   script = ''
+  #     podman network inspect gluetun_default || podman network create gluetun_default
+  #   '';
+  #   partOf = ["podman-compose-gluetun-root.target"];
+  #   wantedBy = ["podman-compose-gluetun-root.target"];
+  # };
 
   # Root service
   # When started, this will automatically create all resources and start
