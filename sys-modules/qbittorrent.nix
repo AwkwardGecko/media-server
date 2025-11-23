@@ -1,4 +1,6 @@
-services.qbittorrent = {
+{ config, lib, pkgs, ... }:
+{
+  services.qbittorrent = {
   enable = true;
   openFirewall = true;
 
@@ -76,3 +78,4 @@ services.qbittorrent = {
     Core.AutoDeleteAddedTorrentFile = "Never";
   };
 };
+}
