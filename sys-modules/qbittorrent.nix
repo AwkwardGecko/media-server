@@ -44,7 +44,7 @@
         AuthSubnetWhitelistEnabled = true;
         LocalHostAuth              = false;
 
-        CustomHTTPHeadersEnabled = true;
+        CustomHTTPHeadersEnabled = false;
         CustomHTTPHeaders =
           "content-security-policy: default-src 'self'; \
            style-src 'self' 'unsafe-inline' theme-park.dev raw.githubusercontent.com use.fontawesome.com; \
