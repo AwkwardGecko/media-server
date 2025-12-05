@@ -25,5 +25,7 @@ fi
        --flake /etc/nixos#wings \
        --show-trace
 
+  nix-store --optimise
+
 echo "[✓] System is fucking updated, you brain-dead inbred piss-guzzling tumor-brained"
 echo "slack-jawed crusty-ass dogshit-eating baboon-fisting hemorrhoid-eating dumpsterfire dickwart"
