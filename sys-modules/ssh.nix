@@ -11,4 +11,9 @@
 
   ## 3) (Optional) Start ssh-agent on login for outbound key management
   programs.ssh.startAgent = true;
+
+  environment.systemPackages = with pkgs; [
+    htop
+    ripgrep
+  ];
 }
