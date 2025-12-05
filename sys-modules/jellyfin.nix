@@ -18,6 +18,7 @@
     dataDir = "/var/lib/jellyfin/data";
     configDir = "/var/lib/jellyfin";
     user = "jellyfin";
+    group = "media";
   };
 
   hardware.graphics = {
