@@ -3,7 +3,9 @@
 {
 	programs.git = {
 		enable = true;
-		userName = "AwkwardGecko";
-		userEmail = "doomguy95@hotmail.com";
+		settings.user = {
+			name = "AwkwardGecko";
+			email = "doomguy95@hotmail.com";
+		};
 	};
 }
