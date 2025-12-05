@@ -16,5 +16,6 @@
     group = "media";
     listenPort = 6767;
     openFirewall = true;
+    group = "media";
   };
 }
