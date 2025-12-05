@@ -6,7 +6,7 @@
   services.radarr = {
     enable = true;
     user = "radarr";
-    group = "users";
+    group = "media";
     dataDir = "/var/lib/radarr/";
     openFirewall = true;
     settings = {
