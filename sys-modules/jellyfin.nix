@@ -3,7 +3,7 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  systemd.services.jellyfin.serviceConfig.UMask = "0002";
+  #systemd.services.jellyfin.serviceConfig.UMask = "0002";
 
 
   networking.firewall.allowedTCPPorts = [
