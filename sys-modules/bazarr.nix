@@ -1,14 +1,7 @@
 #/etc/nixos/sys-modules/bazarr.nix
+{ config, lib, pkgs, ... }:
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-
-  networking.firewall.allowedTCPPorts = [
-    6767
-  ];
+  networking.firewall.allowedTCPPorts = [ 6767 ];
 
   services.bazarr = {
     enable = true;
