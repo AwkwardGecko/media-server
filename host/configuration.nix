@@ -128,7 +128,7 @@ imports = [
   users.users.wings = {
     	isNormalUser = true;
     	description = "wings";
-    	extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
+    	extraGroups = [ "networkmanager" "wheel" "vboxusers" "media" ];
 		openssh.authorizedKeys.keys = [ 
 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHUlyS9q+o6rORRBmKSbrKf/jV6HRJtoetiPxjnsVS5 z-home@z-home-mac"
 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZnVIP/f8jfefNqElezHL+mTqCnyrKTLsifEiE6Or4K dectec@dectech-07451B"
@@ -137,6 +137,9 @@ imports = [
       		kdePackages.kate
     	];
   };
+
+	users.groups.media = {};
+
 
   # Enable automatic login for the user.
  #  services.displayManager.autoLogin = {
