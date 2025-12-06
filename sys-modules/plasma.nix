@@ -4,7 +4,8 @@
   services = {
     xserver.enable = true;
     displayManager = {
-      sddm.enable = true; 
+      sddm.enable = true;
+      sddm.wayland.enable = false;
       defaultSession = "plasmax11";
       # defaultSession = "plasmawayland"
       autoLogin = {
