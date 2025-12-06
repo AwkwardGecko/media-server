@@ -9,6 +9,7 @@
       # defaultSession = "plasmawayland"
       autoLogin = {
         enable = true;
+        Session = "plasmax11.desktop";
         user = "wings";
       };
     };
