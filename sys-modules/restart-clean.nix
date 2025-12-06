@@ -3,9 +3,9 @@
 {
   boot.kernelParams = [ 
     # "reboot=efi"     # tested
-    # "reboot=acpi"    # tested
-    # "reboot=pci"     # tested
-    # "reboot=kbd"     # tested
-    "reboot=triple"  # tested
+    # "reboot=acpi"    #
+    # "reboot=pci"     # 
+    # "reboot=kbd"     # 
+    "reboot=triple"  # 
   ];
 }
