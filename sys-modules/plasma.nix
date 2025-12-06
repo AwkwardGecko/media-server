@@ -5,7 +5,7 @@
     xserver.enable = true;
     displayManager = {
       sddm.enable = true; 
-      defaultSession = "plasma";
+      defaultSession = "plasmax11";
       # defaultSession = "plasmawayland"
       autoLogin = {
         enable = true;
