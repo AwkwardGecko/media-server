@@ -30,7 +30,7 @@ imports = [
     #../sys-modules/nix-ld.nix
     ../sys-modules/papirus-theme.nix
     #../sys-modules/morph.nix
-    #../sys-modules/nixvim.nix
+    ../sys-modules/nixvim.nix
     #../sys-modules/ntfs.nix
     #../sys-modules/nvidia.nix
     #../sys-modules/openssl.nix
