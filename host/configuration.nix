@@ -19,7 +19,7 @@ imports = [
     #../sys-modules/gnome-disks.nix
     #../sys-modules/gparted.nix
 	#../sys-modules/hdmi-autodisplay.nix
-    ../sys-modules/homarr.nix
+    #../sys-modules/homarr.nix
     #../sys-modules/htop.nix
     ../sys-modules/jellyfin.nix
     #../sys-modules/kcalc.nix
