@@ -5,7 +5,7 @@
     # "reboot=efi"     # tested
     # "reboot=acpi"    #
     # "reboot=pci"     # 
-    # "reboot=kbd"     # 
-    "reboot=triple"  # 
+    "reboot=kbd"     # 
+    # "reboot=triple"  # tested
   ];
 }
