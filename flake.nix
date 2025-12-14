@@ -19,7 +19,8 @@
   flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ "x86_64-linux" ];
     imports = [
-      ./host/flake-part.nix
+      ./hosts/wings/flake-part.nix
+      ./hosts/ranon/flake-part.nix
     ];
 
     perSystem = { config, self', inputs', pkgs, system, ... }: {
