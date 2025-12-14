@@ -2,58 +2,58 @@
 { config, lib, pkgs, ... }:
 {
 imports = [ 
-    ./../hardware-configuration.nix
-    #../sys-modules/baobab.nix
-../sys-modules/bazarr.nix    
-#../sys-modules/birdtray.nix
-    ../sys-modules/bluetooth.nix
-    #../sys-modules/chrome.nix
-    ../sys-modules/cifs-utils.nix
-    #../sys-modules/esphome.nix
-    #../sys-modules/evolution.nix
-    ../sys-modules/firefox.nix
-    #../sys-modules/firewall.nix
-    ../sys-modules/flatpak.nix
-    #../sys-modules/fonts.nix
-    #../sys-modules/github-desktop.nix
-    #../sys-modules/gnome-disks.nix
-    #../sys-modules/gparted.nix
-	#../sys-modules/hdmi-autodisplay.nix
-    ../sys-modules/homarr.nix
-    #../sys-modules/htop.nix
-    ../sys-modules/jellyfin.nix
-    #../sys-modules/kcalc.nix
-    #../sys-modules/kdeconnect-firewall.nix
-    #../sys-modules/killall.nix
+    ./hardware-configuration.nix
+    #../../sys-modules/baobab.nix
+../../sys-modules/bazarr.nix    
+#../../sys-modules/birdtray.nix
+    ../../sys-modules/bluetooth.nix
+    #../../sys-modules/chrome.nix
+    ../../sys-modules/cifs-utils.nix
+    #../../sys-modules/esphome.nix
+    #../../sys-modules/evolution.nix
+    ../../sys-modules/firefox.nix
+    #../../sys-modules/firewall.nix
+    ../../sys-modules/flatpak.nix
+    #../../sys-modules/fonts.nix
+    #../../sys-modules/github-desktop.nix
+    #../../sys-modules/gnome-disks.nix
+    #../../sys-modules/gparted.nix
+	#../../sys-modules/hdmi-autodisplay.nix
+    ../../sys-modules/homarr.nix
+    #../../sys-modules/htop.nix
+    ../../sys-modules/jellyfin.nix
+    #../../sys-modules/kcalc.nix
+    #../../sys-modules/kdeconnect-firewall.nix
+    #../../sys-modules/killall.nix
     	#../../sys-modules/krdp.nix
-	#../sys-modules/nixpkgs-fmt.nix
-    #../sys-modules/nix-ld.nix
-    ../sys-modules/papirus-theme.nix
-    #../sys-modules/morph.nix
-    ../sys-modules/nixvim.nix
-    #../sys-modules/ntfs.nix
-    #../sys-modules/nvidia.nix
-    #../sys-modules/openssl.nix
-    ../sys-modules/papirus.nix
-    ../sys-modules/plasma.nix
-	../sys-modules/prometheus.nix
-	../sys-modules/prowlarr.nix
-	../sys-modules/qbittorrent.nix
-    #../sys-modules/qt.nix
-    ../sys-modules/radarr.nix
-    ../sys-modules/remotemouse.nix
-	#../sys-modules/restart-clean.nix
-    #../sys-modules/signal-desktop.nix
-    ../sys-modules/sonarr.nix
-	../sys-modules/ssh.nix
-    ../sys-modules/sshfs.nix
-    #../sys-modules/steam.nix
-    #../sys-modules/syncthing.nix
-	../sys-modules/tailscale.nix
-    ../sys-modules/teamviewer.nix
-    #../sys-modules/virtualbox.nix
-    #../sys-modules/wine.nix
-    #../personalisation/wallpaper-service.nix
+	#../../sys-modules/nixpkgs-fmt.nix
+    #../../sys-modules/nix-ld.nix
+    ../../sys-modules/papirus-theme.nix
+    #../../sys-modules/morph.nix
+    ../../sys-modules/nixvim.nix
+    #../../sys-modules/ntfs.nix
+    #../../sys-modules/nvidia.nix
+    #../../sys-modules/openssl.nix
+    ../../sys-modules/papirus.nix
+    ../../sys-modules/plasma.nix
+	../../sys-modules/prometheus.nix
+	../../sys-modules/prowlarr.nix
+	../../sys-modules/qbittorrent.nix
+    #../../sys-modules/qt.nix
+    ../../sys-modules/radarr.nix
+    ../../sys-modules/remotemouse.nix
+	#../../sys-modules/restart-clean.nix
+    #../../sys-modules/signal-desktop.nix
+    ../../sys-modules/sonarr.nix
+	../../sys-modules/ssh.nix
+    ../../sys-modules/sshfs.nix
+    #../../sys-modules/steam.nix
+    #../../sys-modules/syncthing.nix
+	../../sys-modules/tailscale.nix
+    ../../sys-modules/teamviewer.nix
+    #../../sys-modules/virtualbox.nix
+    #../../sys-modules/wine.nix
+    #../../personalisation/wallpaper-service.nix
 ];
   
   # Bootloader.
