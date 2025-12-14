@@ -1,4 +1,4 @@
-#/etc/nixos/host/flake-part.nix
+#/etc/nixos/hosts/wings/flake-part.nix
 { inputs, ... }:
 {
   flake.nixosConfigurations.wings = inputs.nixpkgs.lib.nixosSystem {
