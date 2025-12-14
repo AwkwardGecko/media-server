@@ -3,10 +3,10 @@
 
 {
   imports = [
-    ../home-modules/fastfetch.nix
-    ../home-modules/fish.nix
-    ../home-modules/git.nix
-    ../home-modules/kitty.nix
+    ../../home-modules/fastfetch.nix
+    ../../home-modules/fish.nix
+    ../../home-modules/git.nix
+    ../../home-modules/kitty.nix
   ];
 
   home.username = "wings";
