@@ -1,31 +1,49 @@
 #!/usr/bin/env bash
-# /etc/nixos/hosts/wings/update.sh
+# /etc/nixos/hosts/ranon/update.sh
 set -euo pipefail
 
-cd /etc/nixos
+###############################################################################
+# Become root if needed, preserving args
+###############################################################################
+SCRIPT="$(readlink -f "${BASH_SOURCE[0]}")"
+if [[ $EUID -ne 0 ]]; then
+  echo "[+] Re-execing as root"
+  exec sudo -E bash "$SCRIPT" "$@"
+fi
 
-# ── Git pull ────────────────────────────────────────────────────────────
+KEY="/root/.ssh/id_ed25519_nixos"
+REPO_DIR="/etc/nixos"
+FLAKE="/etc/nixos#ranon"
+STAMP="/tmp/nix_flake_update.timestamp"
+
+###############################################################################
+# 1. Git pull with deploy key
+###############################################################################
+cd "$REPO_DIR"
 eval "$(ssh-agent -s)" >/dev/null
-ssh-add -q ~/.ssh/id_nixos_readonly
+SSH_OPTS="-i $KEY -o IdentitiesOnly=yes"
+export GIT_SSH_COMMAND="ssh $SSH_OPTS"
+ssh-add -l 2>/dev/null | grep -q "$KEY" || ssh-add -q "$KEY"
 git fetch --quiet origin
 git reset --hard origin/main
 
-# ── Throttle nix flake update to once per 10 min ────────────────────────
-stamp=/tmp/nix_flake_update.timestamp
-if [[ ! -f $stamp || $(( $(date +%s) - $(<"$stamp") )) -ge 600 ]]; then
+
+###############################################################################
+# 2. nix flake update (max once every 10 min)
+###############################################################################
+now=$(date +%s)
+if [[ ! -f $STAMP || $(( now - $(<"$STAMP") )) -ge 600 ]]; then
   echo "[+] nix flake update"
   nix flake update
-  date +%s >"$stamp"
+  echo "$now" > "$STAMP"
 else
-  echo "[=] nix flake update skipped (run <10 min ago)"
+  echo "[=] nix flake update skipped (<10 min since last run)"
 fi
 
-# ── Rebuild ─────────────────────────────────────────────────────────────
-  sudo nixos-rebuild switch \
-       --flake /etc/nixos/hosts/ranon/# \
-       --show-trace
+###############################################################################
+# 3. Rebuild
+###############################################################################
 
-  nix-store --optimise
-
-echo "[✓] System is fucking updated, you brain-dead inbred piss-guzzling tumor-brained"
-echo "slack-jawed crusty-ass dogshit-eating baboon-fisting hemorrhoid-eating dumpsterfire dickwart"
+echo "[+] nixos-rebuild switch"
+nixos-rebuild switch --flake "$FLAKE" --show-trace
+# bash /etc/nixos/scripts/refresh-plasma.sh
