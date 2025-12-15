@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# /etc/nixos/scripts/update.sh
+# /etc/nixos/hosts/wings/update.sh
 set -euo pipefail
 
 cd /etc/nixos
@@ -22,7 +22,7 @@ fi
 
 # ── Rebuild ─────────────────────────────────────────────────────────────
   sudo nixos-rebuild switch \
-       --flake /etc/nixos#wings \
+       --flake /etc/nixos/hosts/wings/# \
        --show-trace
 
   nix-store --optimise
