@@ -4,7 +4,7 @@
 {
   imports = [
     ../../home-modules/fastfetch.nix
-    ../../home-modules/fish.nix
+    ../../home-modules/fish-ranon.nix
     ../../home-modules/git.nix
     ../../home-modules/kitty.nix
   ];
