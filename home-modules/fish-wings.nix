@@ -1,4 +1,4 @@
-#/etc/nixos/home-modules/fish.nix
+#/etc/nixos/home-modules/wings-fish.nix
 { config, lib, pkgs, ... }:
 {
   programs.fish = {
@@ -6,7 +6,7 @@
     shellInit = "cd ~";
     shellInitLast = "fastfetch";
     shellAbbrs = {
-      "update" = "bash /etc/nixos/scripts/update.sh";
+      "update" = "bash /etc/nixos/hosts/wings/update.sh";
     };
   };
 }
