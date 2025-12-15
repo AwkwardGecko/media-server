@@ -1,4 +1,4 @@
-#/etc/nixos/host/home.nix
+#/etc/nixos/hosts/wings/home.nix
 { config, pkgs, ... }:
 
 {
