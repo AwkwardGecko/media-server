@@ -1,4 +1,4 @@
-#/etc/nixos/home-modules/wings-fish.nix
+#/etc/nixos/home-modules/fish-wings.nix
 { config, lib, pkgs, ... }:
 {
   programs.fish = {
