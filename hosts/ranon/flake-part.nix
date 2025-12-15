@@ -1,7 +1,7 @@
 #/etc/nixos/hosts/ranon/flake-part.nix
 { inputs, ... }:
 {
-  flake.nixosConfigurations.wings = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.ranon = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = { inherit (inputs) host; };
 
