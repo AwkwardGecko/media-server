@@ -15,7 +15,7 @@ imports = [
     ../../sys-modules/jellyfin.nix
     ../../sys-modules/papirus-theme.nix
     ../../sys-modules/nixvim.nix
-    ../../sys-modules/ntfs.nix
+    #../../sys-modules/ntfs.nix
     #../../sys-modules/nvidia.nix
     #../../sys-modules/openssl.nix
     ../../sys-modules/papirus.nix
