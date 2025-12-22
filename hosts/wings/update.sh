@@ -11,7 +11,7 @@ if [[ $EUID -ne 0 ]]; then
   exec sudo -E bash "$SCRIPT" "$@"
 fi
 
-KEY="/root/.ssh/id_ed25519.pub"
+KEY="/root/.ssh/id_ed25519"
 REPO_DIR="/etc/nixos"
 FLAKE="/etc/nixos#wings"
 STAMP="/tmp/nix_flake_update.timestamp"
