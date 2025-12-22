@@ -33,7 +33,7 @@ imports = [
     #../../sys-modules/syncthing.nix
 	../../sys-modules/tailscale.nix
     ../../sys-modules/teamviewer.nix
-    ../../sys-modules/virtualbox.nix
+    #../../sys-modules/virtualbox.nix
     ../../sys-modules/wine.nix
     #../../personalisation/wallpaper-service.nix
 ];
