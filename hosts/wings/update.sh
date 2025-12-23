@@ -20,10 +20,10 @@ STAMP="/tmp/nix_flake_update.timestamp"
 # 1. Git pull with deploy key
 ###############################################################################
 cd "$REPO_DIR"
-#eval "$(ssh-agent -s)" >/dev/null
+eval "$(ssh-agent -s)" >/dev/null
 SSH_OPTS="-i $KEY -o IdentitiesOnly=yes"
 export GIT_SSH_COMMAND="ssh $SSH_OPTS"
-#ssh-add -l 2>/dev/null | grep -q "$KEY" || ssh-add -q "$KEY"
+ssh-add -l 2>/dev/null | grep -q "$KEY" || ssh-add -q "$KEY"
 git fetch --quiet origin
 git reset --hard origin/main
 
