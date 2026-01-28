@@ -2,19 +2,24 @@
 { config, lib, pkgs, ... }:
 
 {
-  fileSystems."/mnt/Karmen" = {
-    device = "//192.168.1.105/Andrew";
+
+  environment.systemPackages = [pkgs.cifs-utils];
+
+  systemd.tmpfiles.rules = [ 
+    "d /mnt/publicshare 0755 root root -"
+  ];
+
+  fileSystems."/mnt/publicshare" = {
+    device = "//192.168.1.103/Andrew";
     fsType  = "cifs";
     options = [
-      "credentials=/etc/nixos/secrets/andrew.creds"   # username=Bunny / password=lol
-      "uid=${toString config.users.users.wings.uid}"  # or hard‑code 1000
-      "gid=${toString config.users.users.wings.group}"# or hard‑code 100
+      "username=Bunny"
+      "password=lol"
+      "_netdev"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
       "vers=3.0"
-      "rw"
-      "_netdev"                # wait for network‑online.target
-      "nofail"                 # don’t break boot if share is down
-      "x-systemd.after=network-online.target"         # be explicit
-      "x-systemd.requires=network-online.target"
     ];
   };
 }
