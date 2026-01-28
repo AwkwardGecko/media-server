@@ -10,7 +10,7 @@
   ];
 
   fileSystems."/mnt/publicshare" = {
-    device = "//192.168.1.105/Andrew";
+    device = "//192.168.1.106/Andrew";
     fsType  = "cifs";
     options = [
       "username=Bunny"
