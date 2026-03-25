@@ -11,7 +11,8 @@ imports = [
     ../../sys-modules/firefox.nix
     #../../sys-modules/firewall.nix
     ../../sys-modules/flatpak.nix
-    ../../sys-modules/homarr.nix
+    #../../sys-modules/homarr.nix
+	../../sys-modules/homepage-dashboard.nix
     ../../sys-modules/htop.nix
     ../../sys-modules/jellyfin.nix
     ../../sys-modules/papirus-theme.nix
