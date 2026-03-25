@@ -78,6 +78,7 @@
           href = "http://192.168.1.157:8200";
           icon = "qbittorrent.svg";
         };}
+      ];}
 
 
 
@@ -88,9 +89,8 @@
           icon = "https://www.youtube.com/s/desktop/191847ec/img/favicon_144x144.png";
         };}
 
-      ];}
 
 
     ];
-  }
+  };
 }
