@@ -48,8 +48,6 @@ echo "[+] nixos-rebuild switch"
 nixos-rebuild switch --flake "$FLAKE" --show-trace
 # bash /etc/nixos/scripts/refresh-plasma.sh
 
-
-wings@wings-nixos ~/scripts> cat delete-old-files
 #~/usr/bin/env bash
 
 
