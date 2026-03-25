@@ -4,7 +4,7 @@
     enable = true;
     listenPort = 7575;
     openFirewall = true;
-    allowedHosts = "192.168.1.157:7575,localhost:7575,127.0.0.1:7575";
+    allowedHosts = "192.168.1.103:7575,localhost:7575,127.0.0.1:7575";
 
     settings = {
       title = "Home";
@@ -32,7 +32,7 @@
     services = [
       { "Server" = [
         { "Jellyfin Web" = {
-          href = "http://192.168.1.157:8096";
+          href = "http://192.168.1.103:8096";
           icon = "jellyfin.svg";
         };}
         { "Jellyfin App" = {
@@ -40,27 +40,27 @@
           icon = "jellyfin.svg";
         };}
         { "Jellyseerr" = {
-          href = "http://192.168.1.157:5055";
+          href = "http://192.168.1.103:5055";
           icon = "jellyseerr.svg";
         };}
         { "Sonarr" = {
-          href = "http://192.168.1.157:8989";
+          href = "http://192.168.1.103:8989";
           icon = "sonarr.svg";
         };}
         { "Radarr" = {
-          href = "http://192.168.1.157:7878";
+          href = "http://192.168.1.103:7878";
           icon = "radarr.svg";
         };}
         { "Prowlarr" = {
-          href = "http://192.168.1.157:9696";
+          href = "http://192.168.1.103:9696";
           icon = "prowlarr.svg";
         };}
         { "Bazarr" = {
-          href = "http://192.168.1.157:6767";
+          href = "http://192.168.1.103:6767";
           icon = "bazarr.svg";
         };}
         { "qBittorrent" = {
-          href = "http://192.168.1.157:8200";
+          href = "http://192.168.1.103:8200";
           icon = "qbittorrent.svg";
         };}
       ];}
