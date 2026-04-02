@@ -11,6 +11,8 @@
       #../../sys-modules/bazarr.nix
       ../../sys-modules/homepage-dashboard.nix
       ../../sys-modules/jellyfin.nix
+	    ../../sys-modules/baobab.nix
+      ../../sys-modules/flatpak.nix
       ../../sys-modules/prometheus.nix
       ../../sys-modules/qbittorrent.nix
       ../../sys-modules/radarr.nix
