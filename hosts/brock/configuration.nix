@@ -1,51 +1,20 @@
-#/etc/nixos/host/configuration.nix
-{ config, lib, pkgs, ... }:
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{ config, pkgs, ... }:
+
 {
-imports = [ 
-    ./hardware-configuration.nix
-    #../../sys-modules/automount-karmen.nix
-	../../sys-modules/baobab.nix
-	../../sys-modules/bazarr.nix    
-    ../../sys-modules/bluetooth.nix
-    ../../sys-modules/cifs-utils.nix
-    ../../sys-modules/firefox.nix
-    #../../sys-modules/firewall.nix
-    ../../sys-modules/flatpak.nix
-    #../../sys-modules/homarr.nix
-	../../sys-modules/homepage-dashboard.nix
-    ../../sys-modules/htop.nix
-    ../../sys-modules/jellyfin.nix
-    ../../sys-modules/papirus-theme.nix
-    ../../sys-modules/nixvim.nix
-    #../../sys-modules/ntfs.nix
-    #../../sys-modules/nvidia.nix
-    #../../sys-modules/openssl.nix
-    ../../sys-modules/papirus.nix
-    ../../sys-modules/plasma.nix
-	../../sys-modules/prometheus.nix
-	../../sys-modules/prowlarr.nix
-	../../sys-modules/qbittorrent.nix
-    ../../sys-modules/radarr.nix
-    ../../sys-modules/remotemouse.nix
-	#../../sys-modules/restart-clean.nix
-    ../../sys-modules/sonarr.nix
-	../../sys-modules/ssh.nix
-    ../../sys-modules/sshfs.nix
-    #../../sys-modules/steam.nix
-    #../../sys-modules/syncthing.nix
-	../../sys-modules/tailscale.nix
-    ../../sys-modules/teamviewer.nix
-	#../../sys-modules/tmux.nix
-    #../../sys-modules/virtualbox.nix
-    #../../sys-modules/wine.nix
-    #../../personalisation/wallpaper-service.nix
-];
-  
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "wings-nixos";
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -75,11 +44,11 @@ imports = [
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  # services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -87,11 +56,14 @@ imports = [
     variant = "";
   };
 
+  # Configure console keymap
+  console.keyMap = "us";
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  environment.systemPackages = with pkgs; [ pulseaudio ];
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -110,30 +82,30 @@ imports = [
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.wings = {
-    	isNormalUser = true;
-    	description = "wings";
-    	extraGroups = [ "networkmanager" "wheel" "vboxusers" "media" ];
-		openssh.authorizedKeys.keys = [ 
-"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHUlyS9q+o6rORRBmKSbrKf/jV6HRJtoetiPxjnsVS5 z-home@z-home-mac"
-"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZnVIP/f8jfefNqElezHL+mTqCnyrKTLsifEiE6Or4K dectec@dectech-07451B"
-    	];
-	packages = with pkgs; [
-      		kdePackages.kate
-    	];
+  users.users.brock = {
+    isNormalUser = true;
+    description = "brock";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kdePackages.kate
+    #  thunderbird
+    ];
   };
 
-	users.groups.media = {};
+  # Install firefox.
+  programs.firefox.enable = true;
+  services.teamviewer.enable = true;
 
-
-  # Enable automatic login for the user.
- #  services.displayManager.autoLogin = {
-	# enable = false;
- #  	user = "dectec";
- #  };
-  
   # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -161,6 +133,5 @@ imports = [
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
 }
