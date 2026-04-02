@@ -7,21 +7,21 @@
 {
   imports =
     [
-			./hardware-configuration.nix
-			#../../sys-modules/bazarr.nix
+		./hardware-configuration.nix
+		#../../sys-modules/bazarr.nix
 	    ../../sys-modules/baobab.nix
-      ../../sys-modules/flatpak.nix
-			../../sys-modules/homepage-dashboard.nix
-      ../../sys-modules/jellyfin.nix
-      ../../sys-modules/nixvim.nix
-      ../../sys-modules/prometheus.nix
-      ../../sys-modules/prowlarr.nix
-      ../../sys-modules/qbittorrent.nix
-			../../sys-modules/radarr.nix
-      ../../sys-modules/sonarr.nix
-      ../../sys-modules/ssh.nix
-      ../../sys-modules/tailscale.nix
-      ../../sys-modules/teamviewer.nix
+		../../sys-modules/flatpak.nix
+		../../sys-modules/homepage-dashboard.nix
+    	../../sys-modules/jellyfin.nix
+    	../../sys-modules/nixvim.nix
+    	../../sys-modules/prometheus.nix
+		../../sys-modules/prowlarr.nix
+		../../sys-modules/qbittorrent.nix
+		../../sys-modules/radarr.nix
+		../../sys-modules/sonarr.nix
+		../../sys-modules/ssh.nix
+		../../sys-modules/tailscale.nix
+		../../sys-modules/teamviewer.nix
     ];
 
   # Bootloader.
