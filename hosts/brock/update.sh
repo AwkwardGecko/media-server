@@ -8,7 +8,7 @@ set -euo pipefail
 SCRIPT="$(readlink -f "${BASH_SOURCE[0]}")"
 if [[ $EUID -ne 0 ]]; then
   echo "[+] Re-execing as root"
-  exec sudo -E bash "$SCRIPT" "$@"
+  exec sudo bash "$SCRIPT" "$@"
 fi
 
 KEY="/root/.ssh/id_ed25519_nixos"
