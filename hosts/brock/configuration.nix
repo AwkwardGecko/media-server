@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       #../../sys-modules/bazarr.nix
       ../../sys-modules/homepage-dashboard.nix
-      #../../sys-modules/jellyfin.nix
+      ../../sys-modules/jellyfin.nix
       ../../sys-modules/prometheus.nix
       #../../sys-modules/qbittorrent.nix
       #../../sys-modules/radarr.nix
