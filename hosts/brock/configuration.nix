@@ -19,6 +19,7 @@
       ../../sys-modules/nixvim.nix
       ../../sys-modules/ssh.nix
       ../../sys-modules/tailscale.nix
+      ../../sys-modules/teamviewer.nix
     ];
 
   # Bootloader.
