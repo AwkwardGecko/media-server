@@ -52,7 +52,6 @@
     chromaprint
     libva-utils
     jellyfin
-    #jellyfin-media-player
     jellyfin-ffmpeg
     vlc
   ];
