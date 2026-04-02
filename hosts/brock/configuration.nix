@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../sys-modules/nixvim.nix
+      ../../sys-modules/ssh.nix
+      ../../sys-modules/tailscale.nix
     ];
 
   # Bootloader.
