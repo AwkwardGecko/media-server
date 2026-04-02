@@ -21,6 +21,7 @@
     imports = [
       ./hosts/wings/flake-part.nix
       ./hosts/ranon/flake-part.nix
+      ./hosts/brock/flake-part.nix
     ];
 
     perSystem = { config, self', inputs', pkgs, system, ... }: {
