@@ -3,9 +3,6 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  #systemd.services.jellyfin.serviceConfig.UMask = "0002";
-
-
   networking.firewall.allowedTCPPorts = [
     8096
     8920
