@@ -10,12 +10,12 @@
       ./hardware-configuration.nix
       #../../sys-modules/bazarr.nix
       ../../sys-modules/homepage-dashboard.nix
-      ../../sys-modules/jellyfin.nix
+      #../../sys-modules/jellyfin.nix
       ../../sys-modules/prometheus.nix
-      ../../sys-modules/qbittorrent.nix
-      ../../sys-modules/radarr.nix
-      ../../sys-modules/sonarr.nix
-      ../../sys-modules/prowlarr.nix
+      #../../sys-modules/qbittorrent.nix
+      #../../sys-modules/radarr.nix
+      #../../sys-modules/sonarr.nix
+      #../../sys-modules/prowlarr.nix
       ../../sys-modules/nixvim.nix
       ../../sys-modules/ssh.nix
       ../../sys-modules/tailscale.nix
