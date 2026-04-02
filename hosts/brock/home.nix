@@ -17,7 +17,7 @@
     enable = true;
     settings.user = {
       name = "Brock";
-      email = "brock@hotmail.com";
+      email = "doomguy95@hotmail.com";
     };
   };
 }
