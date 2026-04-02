@@ -8,5 +8,6 @@
     shellAbbrs = {
       "update" = "bash /etc/nixos/hosts/ranon/update.sh";
     };
+    functions.fish_greeting = "";
   };
 }
