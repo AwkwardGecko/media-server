@@ -12,7 +12,7 @@
   ];
 
   users.users.jellyfin.extraGroups = [ "video" "render" ];
-  uers.groups.media = {};
+  users.groups.media = {};
 
   services.jellyfin = {
     enable = true;
