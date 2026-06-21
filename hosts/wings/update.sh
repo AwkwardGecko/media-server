@@ -50,10 +50,6 @@ nixos-rebuild switch --flake "$FLAKE" --show-trace
 
 #~/usr/bin/env bash
 
-
-sudo du -h --max-depth=1 / | sort -h
-sudo du -h --max-depth=1 /nix | sort -h
-sudo du -sh /nix/var/log/nix/drvs
 sudo rm -rf /nix/var/log/nix/drvs/*
 
 journalctl --disk-usage                 # see the damage
