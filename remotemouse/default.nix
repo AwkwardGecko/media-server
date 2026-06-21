@@ -11,24 +11,43 @@ let
     stdenv.cc.cc.lib stdenv.cc.libc
 
     # Core X + extensions & xcb utils (fixes 'xcb plugin' load failures)
-    xorg.libX11              #libx11
-    xorg.libXext             #libxext
-    xorg.libXrender          #libxrender
-    xorg.libXtst             #libxtst
-    xorg.libXi               #libxi
-    xorg.libXcursor          #libxcursor
-    xorg.libXrandr           #libxrandr
-    xorg.libSM               #libsm
-    xorg.libICE              #libice
-    xorg.libxcb              #libxcb
-    xorg.xcbutil             #libxcb-util
-    xorg.xcbutilwm           #libxcb-wm
-    xorg.xcbutilimage        #libxcb-image
-    xorg.xcbutilkeysyms      #libxcb-keysyms
-    xorg.xcbutilrenderutil   #libxcb-render-util
-    xorg.xcbutilcursor       #libxcb-cursor
-    xorg.xhost               #xhost
+    #xorg.libX11              #libx11
+    #xorg.libXext             #libxext
+    #xorg.libXrender          #libxrender
+    #xorg.libXtst             #libxtst
+    #xorg.libXi               #libxi
+    #xorg.libXcursor          #libxcursor
+    #xorg.libXrandr           #libxrandr
+    #xorg.libSM               #libsm
+    #xorg.libICE              #libice
+    #xorg.libxcb              #libxcb
+    #xorg.xcbutil             #libxcb-util
+    #xorg.xcbutilwm           #libxcb-wm
+    #xorg.xcbutilimage        #libxcb-image
+    #xorg.xcbutilkeysyms      #libxcb-keysyms
+    #xorg.xcbutilrenderutil   #libxcb-render-util
+    #xorg.xcbutilcursor       #libxcb-cursor
+    #xorg.xhost               #xhost
     #libxcb-icccm.so.*
+
+    libx11
+    libxext
+    libxrender
+    libxtst
+    libxi
+    libxcursor
+    libxrandr
+    libsm
+    libice
+    libxcb
+    libxcb-util
+    libxcb-wm
+    libxcb-image
+    libxcb-keysyms
+    libxcb-render-util
+    libxcb-cursor
+    xhost
+
   ];
 in
 stdenv.mkDerivation rec {
