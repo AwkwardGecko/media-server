@@ -10,7 +10,7 @@
   networking.firewall.allowedTCPPorts = [ 22 ];
 
   ## 3) (Optional) Start ssh-agent on login for outbound key management
-  programs.ssh.startAgent = true;
+  programs.ssh.startAgent = false;
 
   environment.systemPackages = with pkgs; [
     htop
