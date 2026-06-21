@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  systemd.services.qittorrent.serviceConfig.UMask = "0002";
-
   services.qbittorrent = {
     enable = true;
     openFirewall = true;
