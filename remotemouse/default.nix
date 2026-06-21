@@ -11,7 +11,7 @@ let
     stdenv.cc.cc.lib stdenv.cc.libc
 
     # Core X + extensions & xcb utils (fixes 'xcb plugin' load failures)
-    libX11 libxext libxrender libxtst libxi
+    libx11 libxext libxrender libxtst libxi
     libxcursor libxrandr libsm libice
     libxcb
     libxcb-util
