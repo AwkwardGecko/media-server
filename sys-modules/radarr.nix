@@ -3,8 +3,6 @@
 {
   networking.firewall.allowedTCPPorts = [ 7878 ];
 
-  systemd.services.radarr.serviceConfig.UMask = "0002";
-
   services.radarr = {
     enable = true;
     user = "radarr";
