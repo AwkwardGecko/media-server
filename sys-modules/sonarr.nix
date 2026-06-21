@@ -3,8 +3,6 @@
 {
   networking.firewall.allowedTCPPorts = [ 8989 ];
 
-  systemd.services.sonarr.serviceConfig.UMask = "0002";
-
   services.sonarr = {
     enable = true;
     user = "sonarr";
