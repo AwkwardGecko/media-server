@@ -18,6 +18,7 @@
 		../../sys-modules/prowlarr.nix
 		../../sys-modules/qbittorrent.nix
 		../../sys-modules/radarr.nix
+		../../sys-modules/seerr.nix
 		../../sys-modules/sonarr.nix
 		../../sys-modules/ssh.nix
 		../../sys-modules/tailscale.nix
