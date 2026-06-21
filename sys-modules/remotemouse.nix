@@ -6,7 +6,7 @@ let
 in {
   environment.systemPackages = [
     rmPkg
-    pkgs.xorg.xhost  # handy for X auth troubleshooting
+    pkgs.xhost  # handy for X auth troubleshooting
   ];
   nixpkgs.config.allowUnfree = true;
   networking.firewall.allowedTCPPorts = [ 1978 ];
