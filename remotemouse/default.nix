@@ -1,6 +1,6 @@
 #/etc/nixos/remotemouse/default.nix
 #i-love-you-wingnut
-{ lib, stdenv, fetchzip, makeWrapper, patchelf, glib, dbus, zlib, freetype, fontconfig, libxkbcommon, libGL, alsa-lib, xdotool ? null, libx11, libxext, libxrender, libxtst, libxi, libxcursor, libxrandr, libsm, libice, libxcb, libxcb-util, libxcb-wm, libxcb-image, libxcb-keysyms, libxcb-render-util, libxcb-cursor, xhost }:
+{ lib, stdenv, fetchzip, makeWrapper, patchelf, glib, dbus, zlib, freetype, fontconfig, libxkbcommon, libGL, alsa-lib, xdotool ? null, xauth, libx11, libxext, libxrender, libxtst, libxi, libxcursor, libxrandr, libsm, libice, libxcb, libxcb-util, libxcb-wm, libxcb-image, libxcb-keysyms, libxcb-render-util, libxcb-cursor, xhost }:
 
 let
   xdoPath = lib.optionalString (xdotool != null) "${lib.makeBinPath [ xdotool ]}";
@@ -103,6 +103,8 @@ EOF
       --set QT_PLUGIN_PATH "$vendorQtPlugins" \
       --set QT_QPA_PLATFORM_PLUGIN_PATH "$vendorQtPlugins/platforms" \
       --set QML2_IMPORT_PATH "$vendorQtQml" \
+      --run 'if [ -z "''${XAUTHORITY:-}" ] || [ ! -s "''${XAUTHORITY:-}" ]; then export XAUTHORITY="''${XDG_RUNTIME_DIR:-/tmp}/remotemouse.xauth"; fi' \
+      --run 'if [ ! -s "$XAUTHORITY" ] && [ -n "''${DISPLAY:-}" ]; then ${xauth}/bin/xauth -f "$XAUTHORITY" generate "$DISPLAY" . trusted 2>/dev/null || true; fi' \
       ${lib.optionalString (xdoPath != "") "--prefix PATH : ${xdoPath}"}
 
     runHook postInstall
