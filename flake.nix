@@ -13,6 +13,9 @@
     
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     #nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    remotemouse.url = "github:dectech-au/remotemouse";
+    remotemouse.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
