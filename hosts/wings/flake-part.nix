@@ -9,6 +9,7 @@
       { nixpkgs.config.allowUnfree = true; }
       ./configuration.nix
       inputs.nixvim.nixosModules.nixvim
+      inputs.remotemouse.nixosModules.remotemouse
       inputs.home-manager.nixosModules.home-manager {
         home-manager = {
           useGlobalPkgs = true;
