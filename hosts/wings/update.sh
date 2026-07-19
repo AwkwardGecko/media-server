@@ -78,5 +78,5 @@ sudo rm -rf ~/.cache/nix
 sudo find /nix/var/nix/gcroots/auto -xtype l -delete
 sudo nix-store --optimise
 
-nix path-info -rSh /run/current-system   # how big is the closure you actually need
-df -h /                                  # see what you reclaimed
+#nix path-info -rSh /run/current-system   # how big is the closure you actually need
+#df -h /                                  # see what you reclaimed
