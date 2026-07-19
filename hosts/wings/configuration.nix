@@ -3,7 +3,7 @@
 {
 imports = [ 
     ./hardware-configuration.nix
-    ../../sys-modules/automount-karmen.nix
+    #../../sys-modules/automount-karmen.nix
 	../../sys-modules/baobab.nix
 	../../sys-modules/bazarr.nix    
     ../../sys-modules/bluetooth.nix
