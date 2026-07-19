@@ -27,7 +27,7 @@ imports = [
 	../../sys-modules/qbittorrent.nix
     ../../sys-modules/radarr.nix
     ../../sys-modules/remotemouse.nix
-	#../../sys-modules/restart-clean.nix
+	../../sys-modules/restart-clean.nix
     ../../sys-modules/sonarr.nix
 	../../sys-modules/ssh.nix
     ../../sys-modules/sshfs.nix
