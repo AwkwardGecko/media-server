@@ -61,4 +61,6 @@
       Core.AutoDeleteAddedTorrentFile = "Never";
     };
   };
+
+  systemd.services.qbittorrent.serviceConfig.UMask = "0002";
 }
