@@ -102,7 +102,7 @@
   users.users.brock = {
     isNormalUser = true;
     description = "brock";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "media" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
