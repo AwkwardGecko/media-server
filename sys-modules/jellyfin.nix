@@ -38,7 +38,7 @@
       LIBVA_DRIVER_NAME = "i965";
       VDPAU_DRIVER = "va_gl";
     };
-    serviceConfig.SupplementaryGroups = [ "video" "render" ];
+    serviceConfig.SupplementaryGroups = [ "video" "render" "media" ];
   };
 
   nixpkgs.config.packageOverrides = pkgs: {
