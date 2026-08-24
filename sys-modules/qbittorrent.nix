@@ -9,7 +9,7 @@
     
     serverConfig = {
       LegalNotice.Accepted = true;
-      UMask = "0002";
+      UMask = 0002;
       BitTorrent = {
         Session = {
           DefaultSavePath = "/media/downloads";
