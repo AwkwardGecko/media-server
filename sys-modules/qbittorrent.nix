@@ -3,12 +3,14 @@
   services.qbittorrent = {
     enable = true;
     openFirewall = true;
+    user = "
     group = "media";
     torrentingPort = 18757;
     webuiPort      = 8200;
     
     serverConfig = {
       LegalNotice.Accepted = true;
+      UMask = "0002";
       BitTorrent = {
         Session = {
           DefaultSavePath = "/media/downloads";
