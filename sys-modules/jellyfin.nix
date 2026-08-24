@@ -8,7 +8,7 @@
     8920
   ];
 
-  users.users.jellyfin.extraGroups = [ "video" "render" ];
+  users.users.jellyfin.extraGroups = [ "video" "render" "media" ];
   users.groups.media = {};
 
   services.jellyfin = {
