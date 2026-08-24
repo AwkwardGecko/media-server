@@ -44,16 +44,6 @@
           AuthSubnetWhitelistEnabled = true;
           LocalHostAuth              = false;
 
-          # CustomHTTPHeadersEnabled = false;
-          # CustomHTTPHeaders =
-          #  "content-security-policy: default-src 'self'; \
-          #   style-src 'self' 'unsafe-inline' theme-park.dev raw.githubusercontent.com use.fontawesome.com; \
-          #   img-src 'self' theme-park.dev raw.githubusercontent.com data:; \
-          #   script-src 'self' 'unsafe-inline'; \
-          #   object-src 'none'; \
-          #   form-action 'self'; \
-          #   frame-ancestors 'self'; \
-          #   font-src use.fontawesome.com;";
         };
       };
 
