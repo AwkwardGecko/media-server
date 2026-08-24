@@ -59,12 +59,6 @@
         };
       };
 
-      RSS.AutoDownloader = {
-        DownloadRepacks    = true;
-        SmartEpisodeFilter =
-          ''s(\\d+)e(\\d+), (\\d+)x(\\d+), "(\\d{4}[.\\-]\\d{1,2}[.\\-]\\d{1,2})", "(\\d{1,2}[.\\-]\\d{1,2}[.\\-]\\d{4})"'';
-      };
-
       Core.AutoDeleteAddedTorrentFile = "Never";
     };
   };
