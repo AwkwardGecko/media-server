@@ -13,7 +13,9 @@
         move = true;          # relocate in-place into the tree below
         write = true;         # write matched tags back to the files
         quiet = true;         # never prompt; skip anything ambiguous
+        quiet_fallback = "asis";        # import using existing tags instead of skipping
         incremental = true;   # remember already-processed dirs
+        incremental_skip_later = true;  # retry skipped dirs on the next run
         singletons = false;
         log = "/var/lib/beets/import.log";
       };
