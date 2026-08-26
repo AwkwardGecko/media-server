@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  programs.yt-dlp = {
+  home-manager.users.brock.programs.yt-dlp = {
     enable = true;
     settings = {
       merge-output-format = "mkv";
