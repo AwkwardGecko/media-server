@@ -7,20 +7,20 @@ let
 in
 {
   # Disable Tailscale test suite; fixes the /proc seek failure in the sandbox
-  nixpkgs.overlays = [
-    (final: prev: {
-      tailscale = prev.tailscale.overrideAttrs (_: {
-        doCheck = false;
-      });
-    })
-  ];
+  #nixpkgs.overlays = [
+  #  (final: prev: {
+  #    tailscale = prev.tailscale.overrideAttrs (_: {
+  #      doCheck = false;
+  #    });
+  #  })
+  #];
 
 
 
 
   ## Copy the key into the immutable Nix store at build time.
   ## Replace the source with wherever you actually stash the key.
-  environment.etc."tailscale/hskey.txt".source = "/root/.secrets/hskey.txt";
+  #environment.etc."tailscale/hskey.txt".source = "/root/.secrets/hskey.txt";
 
   services.tailscale = {
     enable               = true;
