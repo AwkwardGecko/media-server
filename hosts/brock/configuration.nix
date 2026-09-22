@@ -23,7 +23,7 @@
 		../../sys-modules/sonarr.nix
 		../../sys-modules/ssh.nix
 		../../sys-modules/swag.nix
-		#../../sys-modules/tailscale.nix
+		../../sys-modules/tailscale.nix
 		../../sys-modules/teamviewer.nix
     	../../sys-modules/tmux.nix
 		../../sys-modules/xfce4.nix
