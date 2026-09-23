@@ -1,3 +1,4 @@
+#/etc/nixos/sys-modules/swag.nix
 # Auto-generated using compose2nix v0.3.1.
 { pkgs, lib, ... }:
 
@@ -39,17 +40,12 @@
     volumes = [
       "/config/swag:/config:rw"
     ];
-    ports = [
-      "443:443/tcp"
-      "80:80/tcp"
-    ];
     labels = {
       "io.containers.autoupdate" = "registry";
     };
     log-driver = "journald";
     extraOptions = [
       "--cap-add=NET_ADMIN"
-      "--network-alias=swag"
       "--network=host"
       "--label=io.containers.autoupdate=registry"
     ];
