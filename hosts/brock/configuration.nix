@@ -11,6 +11,7 @@
 		#../../sys-modules/bazarr.nix
 	    ../../sys-modules/baobab.nix
 		../../sys-modules/beet.nix
+		../../sys-modules/cloudflare-brock.nix
 		../../sys-modules/flatpak.nix
 		../../sys-modules/homepage-dashboard-brock.nix
     	../../sys-modules/jellyfin.nix
