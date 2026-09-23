@@ -50,7 +50,7 @@
     extraOptions = [
       "--cap-add=NET_ADMIN"
       "--network-alias=swag"
-      "--network=swag_default"
+      "--network=host"
       "--label=io.containers.autoupdate=registry"
     ];
   };
