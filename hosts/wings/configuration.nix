@@ -125,6 +125,13 @@ imports = [
 
 	users.groups.media = {};
 
+  systemd.tmpfiles.rules = [
+    "a+ /media/downloads - - - - group:media:rwx,default:group:media:rwx"
+    "a+ /media/movies    - - - - group:media:rwx,default:group:media:rwx"
+    "a+ /media/shows     - - - - group:media:rwx,default:group:media:rwx"
+    "a+ /media/wings     - - - - group:media:rwx,default:group:media:rwx"
+  ];
+
 
   # Enable automatic login for the user.
  #  services.displayManager.autoLogin = {
