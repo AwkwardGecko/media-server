@@ -63,4 +63,12 @@
   };
 
   systemd.services.qbittorrent.serviceConfig.UMask = "0002";
+  systemd.services.sonarr.serviceConfig.UMask = "0002";
+  systemd.services.radarr.serviceConfig.UMask = "0002";
+
+  systemd.tmpfiles.rules = [
+    "d /media/downloads 2775 qbittorrent media - -"
+    "d /media/shows 2775 sonarr media - -"
+    "d /media/movies 2775 radarr media - -"
+  ];
 }
