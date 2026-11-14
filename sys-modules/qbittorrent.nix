@@ -60,7 +60,11 @@
 
       Core.AutoDeleteAddedTorrentFile = "Never";
     };
-  };
+};
+
+systemd.services.qbittorrent.preStart = lib.mkAfter ''
+  rm -f /var/lib/qBittorrent/qBittorrent/lockfile
+'';
 
   systemd.services.qbittorrent.serviceConfig.UMask = "0002";
 
