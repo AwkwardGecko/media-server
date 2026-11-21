@@ -8,6 +8,7 @@
     webuiPort      = 8200;
     
     serverConfig = {
+      extraArgs = [ "--confirm-legal-notice" ];
       LegalNotice.Accepted = true;
       #UMask = 0002;
       BitTorrent = {
@@ -66,12 +67,7 @@ systemd.services.qbittorrent.preStart = lib.mkAfter ''
   rm -f /var/lib/qBittorrent/qBittorrent/lockfile
 '';
 
-systemd.services.qbittorrent.serviceConfig.ExecStart = lib.mkForce (
-  pkgs.writeShellScript "qbittorrent-nox-keepalive" ''
-    ${pkgs.coreutils}/bin/tail -f /dev/null | ${pkgs.qbittorrent-nox}/bin/qbittorrent-nox \
-      --profile=/var/lib/qBittorrent/ --webui-port=8200
-  ''
-);
+
 
   systemd.services.qbittorrent.serviceConfig.UMask = "0002";
 
